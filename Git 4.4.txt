@@ -1,0 +1,136 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~ (master)
+$ cd ~/Github
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git log --oneline --graph
+* 956ce8d (HEAD, c) edit in branch c
+* ae283ce change 6 in branch c
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git branch
+* (no branch, rebasing master)
+  a
+  b
+  c
+  dev
+  doc
+  master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git checkout -b happy
+Switched to a new branch 'happy'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git status -s
+MM 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git stash
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+Saved working directory and index state WIP on happy: 956ce8d edit in branch c
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git status
+On branch happy
+Last command done (1 command done):
+   pick 0c9d93a edit in master
+No commands remaining.
+You are currently editing a commit while rebasing branch 'master' on '956ce8d'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+nothing to commit, working tree clean
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git checkout -b boss
+Switched to a new branch 'boss'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git commit -am "job from boss"
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+[boss ddc2b19] job from boss
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git checkout master
+Switched to branch 'master'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git merge --no-ff -m "merged boss job" boss
+Auto-merging 1.py
+CONFLICT (content): Merge conflict in 1.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git commit -am “solve conflict"
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git commit -am "solve conflict"
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+[master c529942] solve conflict
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git log --oneline --graph
+*   c529942 (HEAD -> master) solve conflict
+|\
+| * ddc2b19 (boss) job from boss
+* | 3f5d07f solve conflict
+|\|
+| * 956ce8d (happy, c) edit in branch c
+* | 0c9d93a edit in master
+* | 60b70b0 keep merge info
+|\|
+| * ae283ce change 6 in branch c
+|/
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git checkout happy
+Switched to branch 'happy'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git stash list
+stash@{0}: WIP on happy: 956ce8d edit in branch c
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git stash pop
+On branch happy
+Last command done (1 command done):
+   pick 0c9d93a edit in master
+No commands remaining.
+You are currently editing a commit while rebasing branch 'master' on '956ce8d'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (6e0d58ecb94aeb796ac2a58e386c3733628a5404)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git status -s
+ M 1.py
+

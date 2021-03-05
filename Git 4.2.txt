@@ -1,0 +1,105 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git branch
+  a
+  b
+  c
+  dev
+  doc
+* master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkout c
+Switched to branch 'c'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git add 2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git commit -m "edit in branch c"
+On branch c
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git commit -am "edit in branch c"
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+[c 956ce8d] edit in branch c
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git checkout master
+Switched to branch 'master'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit -m "edit in master"
+[master 0c9d93a] edit in master
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git branch
+  a
+  b
+  c
+  dev
+  doc
+* master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git merge c
+Auto-merging 1.py
+CONFLICT (content): Merge conflict in 1.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|MERGING)
+$ git log --oneline --graph
+* 0c9d93a (HEAD -> master) edit in master
+*   60b70b0 keep merge info
+|\
+| * ae283ce change 6 in branch c
+|/
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|MERGING)
+$ git checkout c
+error: you need to resolve your current index first
+1.py: needs merge
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|MERGING)
+$ git commit -am "solve conflict"
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+[master 3f5d07f] solve conflict
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+*   3f5d07f (HEAD -> master) solve conflict
+|\
+| * 956ce8d (c) edit in branch c
+* | 0c9d93a edit in master
+* | 60b70b0 keep merge info
+|\|
+| * ae283ce change 6 in branch c
+|/
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py

@@ -1,0 +1,219 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ open .git
+bash: open: command not found
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ .git
+bash: .git: command not found
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/Patricia/Github/.git/
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ a=1
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit -m "change1"
+[master 09cdf2f] change1
+ 1 file changed, 1 insertion(+)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit 09cdf2f35143f0d14e32adc9eecc401e284ebc1c (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:11:30 2021 +0800
+
+    change1
+
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit -m "change 2"
+[master d57fc78] change 2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit d57fc78784af1e5c9baad2468d773c3a5973fa42 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:19:18 2021 +0800
+
+    change 2
+
+commit 09cdf2f35143f0d14e32adc9eecc401e284ebc1c
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:11:30 2021 +0800
+
+    change1
+
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git diff
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+diff --git a/1.py b/1.py
+index 5c6e513..5ee236b 100644
+--- a/1.py
++++ b/1.py
+@@ -1,2 +1,3 @@
+ a=2
+ b=1
++c=3
+\ No newline at end of file
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add .
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git diff --cached
+diff --git a/1.py b/1.py
+index 5c6e513..5ee236b 100644
+--- a/1.py
++++ b/1.py
+@@ -1,2 +1,3 @@
+ a=2
+ b=1
++c=3
+\ No newline at end of file
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git diff HEAD
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+diff --git a/1.py b/1.py
+index 5c6e513..8a2a46e 100644
+--- a/1.py
++++ b/1.py
+@@ -1,2 +1,4 @@
+ a=2
+ b=1
++c=3
++d=c
+\ No newline at end of file
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git diff
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+diff --git a/1.py b/1.py
+index 5ee236b..8a2a46e 100644
+--- a/1.py
++++ b/1.py
+@@ -1,3 +1,4 @@
+ a=2
+ b=1
+-c=3
+\ No newline at end of file
++c=3
++d=c
+\ No newline at end of file
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git diff --cached
+diff --git a/1.py b/1.py
+index 5c6e513..5ee236b 100644
+--- a/1.py
++++ b/1.py
+@@ -1,2 +1,3 @@
+ a=2
+ b=1
++c=3
+\ No newline at end of file
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add .
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit -m "change 3"
+[master 56435e7] change 3
+ 1 file changed, 2 insertions(+)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit 56435e744d840c36460ab44540ce56898b69ec70 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:49:29 2021 +0800
+
+    change 3
+
+commit d57fc78784af1e5c9baad2468d773c3a5973fa42
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:19:18 2021 +0800
+
+    change 2
+
+commit 09cdf2f35143f0d14e32adc9eecc401e284ebc1c
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:11:30 2021 +0800
+
+    change1
+
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status -s
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/Patricia/Github/.git/

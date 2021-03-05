@@ -1,0 +1,173 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~ (master)
+$ cd ~/Github
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (b)
+$ git init
+Reinitialized existing Git repository in C:/Users/Patricia/Github/.git/
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (b)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (b)
+$ git branch
+  a
+* b
+  dev
+  doc
+  master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (b)
+$ git commit -am "change 5 in b"
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+[b d258dd7] change 5 in b
+ 1 file changed, 1 insertion(+)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (b)
+$ git checkout master
+Switched to branch 'master'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git merge b
+Updating 23a0420..d258dd7
+Fast-forward
+ 1.py | 1 +
+ 2.py | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+* d258dd7 (HEAD -> master, b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git merge --no-ff m "keep merge info" b
+merge: m - not something we can merge
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+* d258dd7 (HEAD -> master, b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git merge --no-ff -m "keep merge info" b
+Already up to date.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+* d258dd7 (HEAD -> master, b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkbranch -b c
+git: 'checkbranch' is not a git command. See 'git --help'.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git branch
+  a
+  b
+  dev
+  doc
+* master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkout -b c
+Switched to a new branch 'c'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git log --oneline --graph
+* d258dd7 (HEAD -> c, master, b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git branch
+  a
+  b
+* c
+  dev
+  doc
+  master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git commit -am "change 6 in branch c"
+warning: LF will be replaced by CRLF in 2.py.
+The file will have its original line endings in your working directory
+[c ae283ce] change 6 in branch c
+ 1 file changed, 1 insertion(+)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git log --oneline
+ae283ce (HEAD -> c) change 6 in branch c
+d258dd7 (master, b) change 5 in b
+3ba4037 change 4
+23a0420 (doc, dev, a) back to change1 and comment for 1.py
+56435e7 change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git branch
+  a
+  b
+* c
+  dev
+  doc
+  master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git checkout master
+Switched to branch 'master'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git branch
+  a
+  b
+  c
+  dev
+  doc
+* master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git merge --no-ff -m "keep merge info" c
+Merge made by the 'recursive' strategy.
+ 2.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+*   60b70b0 (HEAD -> master) keep merge info
+|\
+| * ae283ce (c) change 6 in branch c
+|/
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+

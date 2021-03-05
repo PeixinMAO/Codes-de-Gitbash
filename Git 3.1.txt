@@ -1,0 +1,108 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ touch 2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit --amend --no-edit
+[master 4fb672f] change 3
+ Date: Mon Mar 1 23:49:29 2021 +0800
+ 2 files changed, 2 insertions(+)
+ create mode 100644 2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+4fb672f (HEAD -> master) change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+warning: LF will be replaced by CRLF in 1.py.
+The file will have its original line endings in your working directory
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status -s
+M  1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset 1.py
+Unstaged changes after reset:
+M       1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git status -s
+ M 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard HEAD
+HEAD is now at 4fb672f change 3
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+4fb672f (HEAD -> master) change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard HARD^
+fatal: ambiguous argument 'HARD^': unknown revision or path not in the working t
+ree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard HEAD^
+HEAD is now at d57fc78 change 2
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard 09cdf2f
+HEAD is now at 09cdf2f change1
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit 09cdf2f35143f0d14e32adc9eecc401e284ebc1c (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:11:30 2021 +0800
+
+    change1
+
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+09cdf2f (HEAD -> master) change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reflog
+09cdf2f (HEAD -> master) HEAD@{0}: reset: moving to 09cdf2f
+d57fc78 HEAD@{1}: reset: moving to HEAD^
+4fb672f HEAD@{2}: reset: moving to HEAD
+4fb672f HEAD@{3}: commit (amend): change 3
+56435e7 HEAD@{4}: commit: change 3
+d57fc78 HEAD@{5}: commit: change 2
+09cdf2f (HEAD -> master) HEAD@{6}: commit: change1
+f334c6d HEAD@{7}: commit (initial): create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard 4fb672f
+HEAD is now at 4fb672f change 3
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+4fb672f (HEAD -> master) change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py

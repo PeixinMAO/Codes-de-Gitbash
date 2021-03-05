@@ -1,0 +1,74 @@
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/Patricia/Github/.git/
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --onrline
+fatal: unrecognized argument: --onrline
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+3f5d07f (HEAD -> master) solve conflict
+0c9d93a edit in master
+956ce8d (c) edit in branch c
+60b70b0 keep merge info
+ae283ce change 6 in branch c
+d258dd7 (b) change 5 in b
+3ba4037 change 4
+23a0420 (doc, dev, a) back to change1 and comment for 1.py
+56435e7 change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git branch
+  a
+  b
+  c
+  dev
+  doc
+* master
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline --graph
+*   3f5d07f (HEAD -> master) solve conflict
+|\
+| * 956ce8d (c) edit in branch c
+* | 0c9d93a edit in master
+* | 60b70b0 keep merge info
+|\|
+| * ae283ce change 6 in branch c
+|/
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkout c
+Switched to branch 'c'
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git log --oneline --graph
+* 956ce8d (HEAD -> c) edit in branch c
+* ae283ce change 6 in branch c
+* d258dd7 (b) change 5 in b
+* 3ba4037 change 4
+* 23a0420 (doc, dev, a) back to change1 and comment for 1.py
+* 56435e7 change 3
+* d57fc78 change 2
+* 09cdf2f change1
+* f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (c)
+$ git checkout master
+Switched to branch 'master'

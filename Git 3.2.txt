@@ -1,0 +1,134 @@
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+4fb672f (HEAD -> master) change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkout 09cdf2f -- 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+4fb672f (HEAD -> master) change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reflog
+4fb672f (HEAD -> master) HEAD@{0}: reset: moving to 4fb672f
+d57fc78 HEAD@{1}: reset: moving to HEAD^
+4fb672f (HEAD -> master) HEAD@{2}: reset: moving to 4fb672f
+09cdf2f HEAD@{3}: reset: moving to 09cdf2f
+d57fc78 HEAD@{4}: reset: moving to HEAD^
+4fb672f (HEAD -> master) HEAD@{5}: reset: moving to HEAD
+4fb672f (HEAD -> master) HEAD@{6}: commit (amend): change 3
+56435e7 HEAD@{7}: commit: change 3
+d57fc78 HEAD@{8}: commit: change 2
+09cdf2f HEAD@{9}: commit: change1
+f334c6d HEAD@{10}: commit (initial): create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset --hard 56435e7
+HEAD is now at 56435e7 change 3
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git checkout 09cdf2f -- 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git add 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git commit -m "back to change1 and comment for 1.py"
+[master 23a0420] back to change1 and comment for 1.py
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log --oneline
+23a0420 (HEAD -> master) back to change1 and comment for 1.py
+56435e7 change 3
+d57fc78 change 2
+09cdf2f change1
+f334c6d create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reflog
+23a0420 (HEAD -> master) HEAD@{0}: commit: back to change1 and comment for 1.py
+56435e7 HEAD@{1}: reset: moving to 56435e7
+4fb672f HEAD@{2}: reset: moving to 4fb672f
+d57fc78 HEAD@{3}: reset: moving to HEAD^
+4fb672f HEAD@{4}: reset: moving to 4fb672f
+09cdf2f HEAD@{5}: reset: moving to 09cdf2f
+d57fc78 HEAD@{6}: reset: moving to HEAD^
+4fb672f HEAD@{7}: reset: moving to HEAD
+4fb672f HEAD@{8}: commit (amend): change 3
+56435e7 HEAD@{9}: commit: change 3
+d57fc78 HEAD@{10}: commit: change 2
+09cdf2f HEAD@{11}: commit: change1
+f334c6d HEAD@{12}: commit (initial): create 1.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset hard -- 4fb672f
+fatal: Failed to resolve 'hard' as a valid tree.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset -- hard -- 4fb672f
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git reset -- hard 4fb672f
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master)
+$ git log
+commit 23a0420b7c422a4745b95458157ca083920d3ec2 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Tue Mar 2 03:06:07 2021 +0800
+
+    back to change1 and comment for 1.py
+
+commit 23a0420b7c422a4745b95458157ca083920d3ec2 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Tue Mar 2 03:06:07 2021 +0800
+
+    back to change1 and comment for 1.py
+
+commit 23a0420b7c422a4745b95458157ca083920d3ec2 (HEAD -> master)
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Tue Mar 2 03:06:07 2021 +0800
+
+    back to change1 and comment for 1.py
+
+commit 56435e744d840c36460ab44540ce56898b69ec70
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:49:29 2021 +0800
+
+    change 3
+
+commit d57fc78784af1e5c9baad2468d773c3a5973fa42
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:19:18 2021 +0800
+
+    change 2
+
+commit 09cdf2f35143f0d14e32adc9eecc401e284ebc1c
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 23:11:30 2021 +0800
+
+    change1
+
+commit f334c6dd4e38fde3cb21ade7033d09a2c8b30d94
+Author: MAO Peixin <peixin.mao@ensae.fr>
+Date:   Mon Mar 1 05:14:07 2021 +0800
+
+    create 1.py

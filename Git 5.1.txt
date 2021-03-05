@@ -1,0 +1,42 @@
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ cd ~/Github
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ ls -a
+./  ../  .git/  1.ipynb  1.py  2.py
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git remote add origin http://github.com/PeixinMAO/draft
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git push -u origin master
+info: please complete authentication in your browser...
+warning: redirecting to https://github.com/PeixinMAO/draft/
+Enumerating objects: 37, done.
+Counting objects: 100% (37/37), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (31/31), done.
+Writing objects: 100% (37/37), 3.25 KiB | 277.00 KiB/s, done.
+Total 37 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/PeixinMAO/draft/pull/new/master
+remote:
+To http://github.com/PeixinMAO/draft
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Patricia@DESKTOP-2LAEJ0Q MINGW64 ~/Github (master|REBASE 1/1)
+$ git push -u origin c
+warning: redirecting to https://github.com/PeixinMAO/draft/
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'c' on GitHub by visiting:
+remote:      https://github.com/PeixinMAO/draft/pull/new/c
+remote:
+To http://github.com/PeixinMAO/draft
+ * [new branch]      c -> c
+Branch 'c' set up to track remote branch 'c' from 'origin'.
+
